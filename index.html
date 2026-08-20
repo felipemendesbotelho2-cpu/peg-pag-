@@ -1,10 +1,19 @@
+<!--
+  MODELO "MERCADO DELIVERY" — pronto para reuso em vários clientes.
+  Pontos a trocar em cada novo mercado:
+  1. Título e meta description (linhas ~6-7)
+  2. Nome no cabeçalho "Mercado Delivery Seu Nome" (busque por "Seu Nome" no arquivo)
+  3. Link do WhatsApp (busque por "wa.me/" no arquivo)
+  4. SHEET_PUBLISHED_ID — o ID da planilha de produtos do cliente
+  5. Cores da paleta (brick/leaf/sun) no tailwind.config, se quiser variar a identidade visual
+-->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Peg Pag do Seu Luiz | Mercado de Bairro</title>
-<meta name="description" content="Mercado Peg Pag do Seu Luiz: loja física e virtual. Hortifrúti, açougue, padaria e mercearia com entrega rápida pelo WhatsApp." />
+<title>Mercado Delivery Seu Nome | Mercado de Bairro</title>
+<meta name="description" content="Mercado Delivery Seu Nome: loja física e virtual. Hortifrúti, açougue, padaria e mercearia com entrega rápida pelo WhatsApp." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,7 +88,7 @@
           </svg>
         </div>
         <div class="leading-tight">
-          <p class="font-display font-bold text-lg text-brick-800">Peg Pag <span class="text-leaf-600">do Seu Luiz</span></p>
+          <p class="font-display font-bold text-lg text-brick-800">Mercado Delivery <span class="text-leaf-600">Seu Nome</span></p>
           <p class="text-[11px] text-slate-500 -mt-0.5 hidden sm:block">Mercado de bairro, preço de verdade</p>
         </div>
       </a>
@@ -148,7 +157,7 @@
     <div class="relative">
       <div class="absolute -inset-4 bg-sun-400/25 rounded-[2rem] blur-2xl"></div>
       <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop"
-           alt="Prateleiras e hortifrúti do mercado Peg Pag do Seu Luiz"
+           alt="Prateleiras e hortifrúti do Mercado Delivery Seu Nome"
            class="relative rounded-[2rem] shadow-2xl w-full h-[420px] object-cover border-4 border-white/25" />
       <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-soft p-4 flex items-center gap-3 max-w-[220px]">
         <div class="w-10 h-10 rounded-full bg-leaf-100 flex items-center justify-center text-leaf-700 font-display font-bold text-sm">4.8</div>
@@ -344,9 +353,9 @@
           <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/>
         </svg>
       </div>
-      <span class="text-white font-display font-semibold">Peg Pag do Seu Luiz</span>
+      <span class="text-white font-display font-semibold">Mercado Delivery Seu Nome</span>
     </div>
-    <p>&copy; 2026 Peg Pag do Seu Luiz. Todos os direitos reservados.</p>
+    <p>&copy; 2026 Mercado Delivery Seu Nome. Todos os direitos reservados.</p>
     <a href="#" class="hover:text-white transition">Política de Privacidade</a>
   </div>
 </footer>
@@ -664,7 +673,7 @@ function checkoutWhatsApp(){
     return;
   }
 
-  let msg = `Olá! Quero fazer um pedido no *Peg Pag do Seu Luiz*:\n\n`;
+  let msg = `Olá! Quero fazer um pedido no *Mercado Delivery Seu Nome*:\n\n`;
   cart.forEach(i => { msg += `• ${i.qtd}x ${i.nome} — ${money(i.preco*i.qtd)}\n`; });
   const subtotal = cart.reduce((s,i)=>s+i.preco*i.qtd,0);
   msg += `\n*Subtotal: ${money(subtotal)}*\n\n`;
