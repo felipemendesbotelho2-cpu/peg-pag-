@@ -499,7 +499,7 @@ function loadProductsFromSheet(){
             nome: (get('nome') || '').trim(),
             cat: (get('cat') || 'outros').trim().toLowerCase(),
             preco: parsePreco(get('preco')),
-            img: (get('foto') || '').trim()
+            img: (get('img') || get('foto') || get('imagem') || '').trim()
           };
         })
         .filter(p => p.nome); // ignora linhas vazias
