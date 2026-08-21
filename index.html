@@ -1,19 +1,13 @@
 <!--
   MODELO "MERCADO DELIVERY" — pronto para reuso em vários clientes.
-  Pontos a trocar em cada novo mercado:
-  1. Título e meta description (linhas ~6-7)
-  2. Nome no cabeçalho "Mercado Delivery Seu Nome" (busque por "Seu Nome" no arquivo)
-  3. Link do WhatsApp (busque por "wa.me/" no arquivo)
-  4. SHEET_PUBLISHED_ID — o ID da planilha de produtos do cliente
-  5. Cores da paleta (brick/leaf/sun) no tailwind.config, se quiser variar a identidade visual
 -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mercado Delivery Seu Nome | Mercado de Bairro</title>
-<meta name="description" content="Mercado Delivery Seu Nome: loja física e virtual. Hortifrúti, açougue, padaria e mercearia com entrega rápida pelo WhatsApp." />
+<title>Supermercado Viana | Mercado de Bairro</title>
+<meta name="description" content="Supermercado Viana: loja física e virtual. Hortifrúti, açougue, padaria e mercearia com entrega rápida pelo WhatsApp." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,17 +20,17 @@
     theme: {
       extend: {
         colors: {
-          brick: { 950:'#450a0a', 800:'#8a1f1f', 700:'#a82323', 600:'#c22a2a', 500:'#dc3535' },
+          brick: { 950:'#0a1130', 900:'#0f1b4d', 800:'#132267', 700:'#152d8c', 600:'#1a3fae', 500:'#2454d6', 200:'#c7d4f7', 100:'#dbe5fb', 50:'#eef2fd' },
           leaf:  { 700:'#166534', 600:'#16a34a', 500:'#22c55e', 100:'#dcfce7', 50:'#f0fdf4' },
-          sun:   { 500:'#f5b400', 400:'#facc15', 100:'#fef3c7' },
+          sun:   { 500:'#e11d2e', 400:'#ef4444', 100:'#fee2e2' },
           wa: { DEFAULT:'#25D366', dark:'#1DA851' },
-          cream: '#FFFBF2',
+          cream: '#F5F8FF',
         },
         fontFamily: {
           display: ['Poppins','sans-serif'],
           body: ['Inter','sans-serif'],
         },
-        boxShadow: { soft: '0 10px 30px -10px rgba(138,31,31,0.22)' }
+        boxShadow: { soft: '0 10px 30px -10px rgba(15,27,77,0.28)' }
       }
     }
   }
@@ -50,7 +44,7 @@
   .zig { clip-path: polygon(0 0,100% 0,100% 100%,0 92%); }
 
   .card-hover { transition: transform .25s ease, box-shadow .25s ease; }
-  .card-hover:hover { transform: translateY(-5px); box-shadow: 0 18px 34px -14px rgba(138,31,31,.3); }
+  .card-hover:hover { transform: translateY(-5px); box-shadow: 0 18px 34px -14px rgba(15,27,77,.35); }
 
   .cta-btn { transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
   .cta-btn:hover { transform: translateY(-2px) scale(1.02); }
@@ -62,15 +56,19 @@
   }
 
   #cart-drawer, #overlay { transition: transform .35s ease, opacity .35s ease; }
-  .cat-btn.active { background:#c22a2a; color:#fff; }
+  .cat-btn.active { background:#e11d2e; color:#fff; border-color:#e11d2e; }
 
   ::-webkit-scrollbar { height: 6px; width: 6px; }
-  ::-webkit-scrollbar-thumb { background: #dc3535; border-radius: 10px; }
+  ::-webkit-scrollbar-thumb { background: #1a3fae; border-radius: 10px; }
 
   @media (prefers-reduced-motion: reduce) {
     .card-hover,.cta-btn,#cart-drawer,#overlay { transition:none; }
   }
   :focus-visible { outline: 3px solid #16a34a; outline-offset: 2px; }
+
+  .viana-logo-mark {
+    background: radial-gradient(circle at 30% 25%, #2a56dd, #0f1b4d 78%);
+  }
 </style>
 </head>
 
@@ -82,14 +80,18 @@
     <div class="flex items-center justify-between h-20">
 
       <a href="#topo" class="flex items-center gap-3">
-        <div class="w-11 h-11 rounded-2xl bg-brick-600 flex items-center justify-center shadow-soft">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+        <div class="viana-logo-mark w-12 h-12 rounded-2xl flex items-center justify-center shadow-soft relative overflow-hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 relative z-10" viewBox="0 0 24 24" fill="none">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 6h18" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 10.5 12 15l6-8" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
         <div class="leading-tight">
-          <p class="font-display font-bold text-lg text-brick-800">Mercado Delivery <span class="text-leaf-600">Seu Nome</span></p>
-          <p class="text-[11px] text-slate-500 -mt-0.5 hidden sm:block">Mercado de bairro, preço de verdade</p>
+          <p class="font-display font-extrabold text-lg tracking-tight">
+            <span class="text-brick-700">Supermercado</span> <span class="text-sun-500">Viana</span>
+          </p>
+          <p class="text-[11px] text-slate-500 -mt-0.5 hidden sm:block">Qualidade em produtos e serviços!</p>
         </div>
       </a>
 
@@ -115,7 +117,7 @@
 </header>
 
 <!-- ================= HERO ================= -->
-<section id="topo" class="relative bg-gradient-to-br from-brick-700 via-brick-600 to-sun-500 zig pb-24 pt-14 md:pt-20 overflow-hidden">
+<section id="topo" class="relative bg-gradient-to-br from-brick-900 via-brick-700 to-brick-600 zig pb-24 pt-14 md:pt-20 overflow-hidden">
   <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image:radial-gradient(circle,#fff 1px,transparent 1px); background-size:22px 22px;"></div>
 
   <div class="max-w-7xl mx-auto px-5 md:px-8 grid md:grid-cols-2 gap-10 items-center relative">
@@ -136,7 +138,7 @@
 
       <div class="mt-8 flex flex-col sm:flex-row gap-4">
         <a href="#loja"
-           class="cta-btn inline-flex items-center justify-center gap-2 bg-white text-brick-700 font-semibold text-base px-7 py-4 rounded-full shadow-soft">
+           class="cta-btn inline-flex items-center justify-center gap-2 bg-sun-500 hover:bg-sun-400 text-white font-semibold text-base px-7 py-4 rounded-full shadow-soft">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 1.94-4.693 2.443-7.153.107-.523-.307-1.005-.841-1.005H5.106M7.5 14.25 5.106 5.114"/></svg>
           Navegar na loja virtual
         </a>
@@ -157,7 +159,7 @@
     <div class="relative">
       <div class="absolute -inset-4 bg-sun-400/25 rounded-[2rem] blur-2xl"></div>
       <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop"
-           alt="Prateleiras e hortifrúti do Mercado Delivery Seu Nome"
+           alt="Prateleiras e hortifrúti do Supermercado Viana"
            class="relative rounded-[2rem] shadow-2xl w-full h-[420px] object-cover border-4 border-white/25" />
       <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-soft p-4 flex items-center gap-3 max-w-[220px]">
         <div class="w-10 h-10 rounded-full bg-leaf-100 flex items-center justify-center text-leaf-700 font-display font-bold text-sm">4.8</div>
@@ -301,7 +303,7 @@
           </div>
           <div>
             <p class="font-medium text-brick-900">Endereço</p>
-            <p class="text-sm text-slate-500">Av. dos Ipês, 512 — Bairro Vila Nova, Palmas – TO</p>
+            <p class="text-sm text-slate-500">1006 Sul, Entrada da Quadra, Palmas – TO</p>
           </div>
         </div>
         <div class="flex gap-4">
@@ -320,7 +322,7 @@
           </div>
           <div>
             <p class="font-medium text-brick-900">Contato</p>
-            <p class="text-sm text-slate-500">(63) 99999-7777 · também por WhatsApp</p>
+            <p class="text-sm text-slate-500">(63) 3216-3644 · também por WhatsApp</p>
           </div>
         </div>
       </div>
@@ -330,14 +332,14 @@
     <div class="relative rounded-3xl overflow-hidden shadow-soft border border-brick-100 h-[380px] bg-brick-50 flex items-center justify-center">
       <img src="https://images.unsplash.com/photo-1601599963565-b7f49deb2701?q=80&w=1200&auto=format&fit=crop"
            alt="Vista ilustrativa do bairro" class="absolute inset-0 w-full h-full object-cover opacity-90" />
-      <div class="absolute inset-0 bg-brick-900/25"></div>
+      <div class="absolute inset-0 bg-brick-900/35"></div>
       <div class="relative bg-white rounded-2xl shadow-lg px-5 py-4 flex items-center gap-3">
         <div class="w-9 h-9 rounded-full bg-brick-600 text-white flex items-center justify-center flex-shrink-0">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
         </div>
         <div class="text-sm">
-          <p class="font-semibold text-brick-900">Av. dos Ipês, 512</p>
-          <p class="text-slate-500 text-xs">Vila Nova, Palmas – TO</p>
+          <p class="font-semibold text-brick-900">1006 Sul</p>
+          <p class="text-slate-500 text-xs">Entrada da Quadra, Palmas – TO</p>
         </div>
       </div>
     </div>
@@ -348,23 +350,23 @@
 <footer class="bg-brick-950 text-white/70 py-10">
   <div class="max-w-7xl mx-auto px-5 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
     <div class="flex items-center gap-2">
-      <div class="w-8 h-8 rounded-lg bg-brick-600 flex items-center justify-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/>
+      <div class="w-8 h-8 rounded-lg viana-logo-mark flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 6h18" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
-      <span class="text-white font-display font-semibold">Mercado Delivery Seu Nome</span>
+      <span class="text-white font-display font-semibold">Supermercado Viana</span>
     </div>
-    <p>&copy; 2026 Mercado Delivery Seu Nome. Todos os direitos reservados.</p>
+    <p>&copy; 2026 Supermercado Viana. Todos os direitos reservados.</p>
     <a href="#" class="hover:text-white transition">Política de Privacidade</a>
   </div>
 </footer>
 
 <!-- ================= BOTÃO FLUTUANTE: ABRIR CARRINHO ================= -->
 <button onclick="openCart()" aria-label="Abrir carrinho"
-   class="cta-btn fixed bottom-6 right-6 z-40 bg-brick-600 hover:bg-brick-700 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center">
+   class="cta-btn fixed bottom-6 right-6 z-40 bg-sun-500 hover:bg-sun-400 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center">
   <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 1.94-4.693 2.443-7.153.107-.523-.307-1.005-.841-1.005H5.106M7.5 14.25 5.106 5.114M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
-  <span id="cart-count-float" class="absolute -top-1 -right-1 bg-sun-400 text-brick-900 text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
+  <span id="cart-count-float" class="absolute -top-1 -right-1 bg-brick-700 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
 </button>
 
 <!-- ================= ABA FLUTUANTE: HORÁRIOS DAS ROTAS ================= -->
@@ -443,15 +445,6 @@
 </aside>
 
 <script>
-/* =========================================================
-   CATÁLOGO DE PRODUTOS
-   -> Os produtos vêm da planilha do Google Sheets publicada.
-      Para adicionar/editar produtos: basta editar a planilha
-      (nome, preço, foto, cat) — o site atualiza sozinho.
-      Dica: preencha a coluna "cat" com o código da categoria
-      em minúsculo (acougue, padaria, hortifruti, mercearia,
-      bebidas, laticinios, etc.) para o filtro do topo funcionar.
-   ========================================================= */
 const SHEET_PUBLISHED_ID = "2PACX-1vSUlA8eS-79rm-UOKHfYzx1k4tJuSbkGaE-Gh5Y62YFTWGgJ6AGk3L47GorAbrts_EzmTOVMShB-_ds";
 const SHEET_CSV_URL = `https://docs.google.com/spreadsheets/d/e/${SHEET_PUBLISHED_ID}/pub?output=csv`;
 
@@ -462,15 +455,11 @@ const CAT_LABEL = {
   mercearia: "Mercearia", bebidas: "Bebidas", laticinios: "Laticínios"
 };
 
-// Se a planilha trouxer uma categoria nova que ainda não tem rótulo
-// bonito em CAT_LABEL, gera um rótulo automático a partir do código.
 function labelForCat(cat){
   if (CAT_LABEL[cat]) return CAT_LABEL[cat];
   return cat.charAt(0).toUpperCase() + cat.slice(1);
 }
 
-// Cria os botões de filtro de categoria dinamicamente, com base
-// nas categorias que realmente vieram na planilha.
 function renderCatFilters(){
   const wrap = document.getElementById('cat-filters');
   const cats = [...new Set(PRODUCTS.map(p => p.cat))].sort();
@@ -481,7 +470,6 @@ function renderCatFilters(){
 function parsePreco(raw){
   if (typeof raw === 'number') return raw;
   if (!raw) return 0;
-  // aceita "12,90" "R$ 12,90" "12.90" etc.
   const cleaned = String(raw).replace(/[^\d,.-]/g, '').replace(',', '.');
   const v = parseFloat(cleaned);
   return isNaN(v) ? 0 : v;
@@ -498,7 +486,6 @@ function loadProductsFromSheet(){
     complete: (results) => {
       PRODUCTS = results.data
         .map((row, i) => {
-          // aceita nomes de coluna com variações de maiúscula/espaço
           const get = (key) => {
             const foundKey = Object.keys(row).find(k => k.trim().toLowerCase() === key);
             return foundKey ? row[foundKey] : '';
@@ -511,7 +498,7 @@ function loadProductsFromSheet(){
             img: (get('img') || get('foto') || get('imagem') || '').trim()
           };
         })
-        .filter(p => p.nome); // ignora linhas vazias
+        .filter(p => p.nome);
 
       if (PRODUCTS.length === 0){
         grid.innerHTML = `<p class="col-span-full text-center text-slate-400 py-10">Nenhum produto encontrado na planilha ainda.</p>`;
@@ -539,13 +526,13 @@ function renderProducts() {
   grid.innerHTML = list.map(p => `
     <div class="card-hover bg-white rounded-2xl border border-brick-100 overflow-hidden shadow-soft flex flex-col">
       <div class="relative h-40 overflow-hidden">
-        <img src="${p.img}" alt="${p.nome}" class="w-full h-full object-cover" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x400/f0fdf4/16a34a?text=Sem+foto';" />
+        <img src="${p.img}" alt="${p.nome}" class="w-full h-full object-cover" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x400/eef2fd/1a3fae?text=Sem+foto';" />
         <span class="absolute top-2 left-2 bg-white/90 text-[10px] font-semibold text-brick-700 px-2 py-1 rounded-full uppercase tracking-wide">${labelForCat(p.cat)}</span>
       </div>
       <div class="p-4 flex flex-col flex-1">
         <h3 class="font-display font-semibold text-sm text-brick-900 leading-snug flex-1">${p.nome}</h3>
         <p class="text-leaf-700 font-bold text-lg mt-2">${money(p.preco)}</p>
-        <button onclick="addToCart(${p.id})" class="cta-btn mt-3 w-full flex items-center justify-center gap-1.5 bg-brick-600 hover:bg-brick-700 text-white text-sm font-semibold py-2.5 rounded-full">
+        <button onclick="addToCart(${p.id})" class="cta-btn mt-3 w-full flex items-center justify-center gap-1.5 bg-sun-500 hover:bg-sun-400 text-white text-sm font-semibold py-2.5 rounded-full">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
           Adicionar
         </button>
@@ -557,18 +544,17 @@ function renderProducts() {
 function renderFeatured(){
   const shelf = document.getElementById('shelf-featured');
   if (!shelf) return;
-  // Pega até 8 produtos espalhados entre as categorias para a prateleira em destaque
   const items = PRODUCTS.slice(0, 8);
   shelf.innerHTML = items.map(p => `
     <div class="card-hover snap-start flex-shrink-0 w-44 bg-white rounded-2xl border border-brick-100 overflow-hidden shadow-soft flex flex-col">
       <div class="relative h-32 overflow-hidden">
-        <img src="${p.img}" alt="${p.nome}" class="w-full h-full object-cover" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x400/f0fdf4/16a34a?text=Sem+foto';" />
-        <span class="absolute top-2 left-2 bg-sun-400 text-[9px] font-bold text-brick-900 px-2 py-1 rounded-full uppercase tracking-wide">Destaque</span>
+        <img src="${p.img}" alt="${p.nome}" class="w-full h-full object-cover" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x400/eef2fd/1a3fae?text=Sem+foto';" />
+        <span class="absolute top-2 left-2 bg-sun-500 text-[9px] font-bold text-white px-2 py-1 rounded-full uppercase tracking-wide">Destaque</span>
       </div>
       <div class="p-3 flex flex-col flex-1">
         <h3 class="font-display font-semibold text-xs text-brick-900 leading-snug flex-1">${p.nome}</h3>
         <p class="text-leaf-700 font-bold text-base mt-1.5">${money(p.preco)}</p>
-        <button onclick="addToCart(${p.id})" class="cta-btn mt-2 w-full flex items-center justify-center gap-1 bg-brick-600 hover:bg-brick-700 text-white text-xs font-semibold py-2 rounded-full">
+        <button onclick="addToCart(${p.id})" class="cta-btn mt-2 w-full flex items-center justify-center gap-1 bg-sun-500 hover:bg-sun-400 text-white text-xs font-semibold py-2 rounded-full">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
           Adicionar
         </button>
@@ -673,7 +659,7 @@ function checkoutWhatsApp(){
     return;
   }
 
-  let msg = `Olá! Quero fazer um pedido no *Mercado Delivery Seu Nome*:\n\n`;
+  let msg = `Olá! Quero fazer um pedido no *Supermercado Viana*:\n\n`;
   cart.forEach(i => { msg += `• ${i.qtd}x ${i.nome} — ${money(i.preco*i.qtd)}\n`; });
   const subtotal = cart.reduce((s,i)=>s+i.preco*i.qtd,0);
   msg += `\n*Subtotal: ${money(subtotal)}*\n\n`;
@@ -683,11 +669,10 @@ function checkoutWhatsApp(){
   msg += `Bairro: ${bairro}\n`;
   if (referencia) msg += `Referência: ${referencia}\n`;
 
-  const url = `https://wa.me/5563992088796?text=${encodeURIComponent(msg)}`;
+  const url = `https://wa.me/556332163644?text=${encodeURIComponent(msg)}`;
   window.open(url, '_blank');
 }
 
-/* ---- Horários das rotas de entrega (08:00 às 22:00, de 30 em 30 min) ---- */
 function buildRouteTimes(){
   const times = [];
   let h = 8, m = 0;
