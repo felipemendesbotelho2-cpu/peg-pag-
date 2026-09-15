@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Supermercado Viana | Mercado de Bairro</title>
-<meta name="description" content="Supermercado Viana: loja física e virtual. Hortifrúti, açougue, padaria e mercearia com entrega rápida pelo WhatsApp." />
+<title>Supermercado Real | Mercado de Bairro</title>
+<meta name="description" content="Supermercado Real: loja física e virtual. Hortifrúti, açougue, padaria e mercearia com entrega rápida pelo WhatsApp." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,7 +66,7 @@
   }
   :focus-visible { outline: 3px solid #16a34a; outline-offset: 2px; }
 
-  .viana-logo-mark {
+  .real-logo-mark {
     background: radial-gradient(circle at 30% 25%, #2a56dd, #0f1b4d 78%);
   }
 </style>
@@ -80,7 +80,7 @@
     <div class="flex items-center justify-between h-20">
 
       <a href="#topo" class="flex items-center gap-3">
-        <div class="viana-logo-mark w-12 h-12 rounded-2xl flex items-center justify-center shadow-soft relative overflow-hidden">
+        <div class="real-logo-mark w-12 h-12 rounded-2xl flex items-center justify-center shadow-soft relative overflow-hidden">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 relative z-10" viewBox="0 0 24 24" fill="none">
             <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M3 6h18" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -89,7 +89,7 @@
         </div>
         <div class="leading-tight">
           <p class="font-display font-extrabold text-lg tracking-tight">
-            <span class="text-brick-700">Supermercado</span> <span class="text-sun-500">Viana</span>
+            <span class="text-brick-700">Supermercado</span> <span class="text-sun-500">Real</span>
           </p>
           <p class="text-[11px] text-slate-500 -mt-0.5 hidden sm:block">Qualidade em produtos e serviços!</p>
         </div>
@@ -159,7 +159,7 @@
     <div class="relative">
       <div class="absolute -inset-4 bg-sun-400/25 rounded-[2rem] blur-2xl"></div>
       <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop"
-           alt="Prateleiras e hortifrúti do Supermercado Viana"
+           alt="Prateleiras e hortifrúti do Supermercado Real"
            class="relative rounded-[2rem] shadow-2xl w-full h-[420px] object-cover border-4 border-white/25" />
       <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-soft p-4 flex items-center gap-3 max-w-[220px]">
         <div class="w-10 h-10 rounded-full bg-leaf-100 flex items-center justify-center text-leaf-700 font-display font-bold text-sm">4.8</div>
@@ -350,14 +350,14 @@
 <footer class="bg-brick-950 text-white/70 py-10">
   <div class="max-w-7xl mx-auto px-5 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
     <div class="flex items-center gap-2">
-      <div class="w-8 h-8 rounded-lg viana-logo-mark flex items-center justify-center">
+      <div class="w-8 h-8 rounded-lg real-logo-mark flex items-center justify-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none">
           <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 6h18" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
-      <span class="text-white font-display font-semibold">Supermercado Viana</span>
+      <span class="text-white font-display font-semibold">Supermercado Real</span>
     </div>
-    <p>&copy; 2026 Supermercado Viana. Todos os direitos reservados.</p>
+    <p>&copy; 2026 Supermercado Real. Todos os direitos reservados.</p>
     <a href="#" class="hover:text-white transition">Política de Privacidade</a>
   </div>
 </footer>
@@ -659,7 +659,7 @@ function checkoutWhatsApp(){
     return;
   }
 
-  let msg = `Olá! Quero fazer um pedido no *Supermercado Viana*:\n\n`;
+  let msg = `Olá! Quero fazer um pedido no *Supermercado Real*:\n\n`;
   cart.forEach(i => { msg += `• ${i.qtd}x ${i.nome} — ${money(i.preco*i.qtd)}\n`; });
   const subtotal = cart.reduce((s,i)=>s+i.preco*i.qtd,0);
   msg += `\n*Subtotal: ${money(subtotal)}*\n\n`;
